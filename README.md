@@ -10,7 +10,7 @@
 
 vs code를 활용한 작업을 위해 아래 확장 프로그램을 설치하자.
 
-![image-20211018233405403](C:\Users\wesle\5lues\develop\Rust\Rust_Study\image-20211018233405403.png)
+![image-20211018233405403](image-20211018233405403.png)
 
 바로 cargo를 활용한 프로젝트 생성으로 넘어가자
 
