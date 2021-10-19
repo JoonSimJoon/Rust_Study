@@ -214,3 +214,40 @@ fn plus_one(x: i32) -> i32 {
 }
 ```
 
+주석은 `//주석입니다` 로 작성가능하다
+
+다음은 기본적인 조건문이다.
+
+ c++ , 파이썬 문법과 적절히 섞은 느낌이 든다 
+
+```
+fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+}
+```
+
+러스트에서 가장 흥미로운 부분중 하나였던 let에서의 if문이다
+
+```
+fn main() {
+    let condition = true;
+    let number = if condition {
+        5
+    } else {
+        6 //"six" 로 작성한다면 if와 else의 결과 값이 다르기에 오류가 난다 
+    };
+
+    println!("The value of number is: {}", number);
+}
+```
+
