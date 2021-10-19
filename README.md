@@ -272,3 +272,29 @@ fn main() {
 
 ```
 
+if문 조건 작성하듯이 while문의 탈출조건을 작성하면 된다. 
+
+```
+fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a.iter() {
+        println!("the value is: {}", element);
+    }
+}
+
+```
+
+다음은 for 문이다 파이썬의 코드와 같이 작성하면 된다 
+
+```
+fn main() {
+    for number in (1..4).rev() {
+        println!("{}!", number);
+    }
+    println!("LIFTOFF!!!");
+}
+
+```
+
+리스트를 역정렬(reverse) 해주는 rev 함수를 사용하여 간단한 카운트다운 프로그램도 작성할 수 있다. 
