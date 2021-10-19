@@ -148,3 +148,69 @@ fn main() {
 ------
 
 #### 02. 기본 문법-  2 (함수 , 제어문)
+
+함수 선언은 fn으로 시작하며 함수 이름 뒤에 괄호 형태로 인자를 받는다. 
+
+```
+#![allow(non_snake_case)]
+
+fn main() {
+    println!("Hello, world!");
+
+    another_function();
+}
+
+fn another_function() {
+    println!("Another function.");
+}
+```
+
+아래와 같이 사용 가능하다
+
+```
+fn main() {
+    another_function(5);
+}
+
+fn another_function(x: i32) {
+    println!("The value of x is: {}", x);
+}
+```
+
+여러개의 인자 역시 가능하다 
+
+c언어를 처음 배울때 많이 헷갈렸던 구문과 표현식은 다음과 같다
+
+```
+#![allow(non_snake_case)]
+
+fn main() {
+    let x = 5;
+
+    let y = {
+        let x = 3;
+        x + 1
+    };
+
+    println!("The value of y is: {}", y);
+}
+```
+
+실행결과는 4가 나온다.  유의해야할점은 표현식에서의 종결은 ;이 존재하지 않다는 점이다. 
+
+값을 return하는 함수는 다음과 같이 작성한다 
+
+```
+#![allow(non_snake_case)]
+
+fn main() {
+    let x = plus_one(5);
+
+    println!("The value of x is: {}", x);
+}
+
+fn plus_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
