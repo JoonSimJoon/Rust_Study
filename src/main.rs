@@ -1,10 +1,11 @@
 #![allow(non_snake_case)]
 
 fn main() {
-    let a = [1, 2, 3, 4, 5];
-    let index = 10;
+    println!("Hello, world!");
 
-    let element = a[4];
+    another_function();
+}
 
-    println!("The value of element is: {}", element);
+fn another_function() {
+    println!("Another function.");
 }
