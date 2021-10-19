@@ -1,12 +1,10 @@
 #![allow(non_snake_case)]
 
 fn main() {
-    let x: (i32, f64, u8) = (500, 6.4, 1);
+    let a = [1, 2, 3, 4, 5];
+    let index = 10;
 
-    let five_hundred = x.0;
+    let element = a[4];
 
-    let six_point_four = x.1;
-
-    let one = x.2;
-    println!("{} {} {}",five_hundred,six_point_four,one);
+    println!("The value of element is: {}", element);
 }
