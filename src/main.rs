@@ -1,18 +1,12 @@
 #![allow(non_snake_case)]
+
 fn main() {
-    // addition
-    let sum = 5 + 10;
-    println!("{}",sum);
-    // subtraction
-    let difference = 95.5 - 4.3;
-    println!("{}",difference);
-    // multiplication
-    let product = 4 * 30;
-    println!("{}",product);
-    // division
-    let quotient = 56.7 / 32.2;
-    println!("{}",quotient);
-    // remainder
-    let remainder = 43  5;
-    println!("{}",remainder);
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+
+    let five_hundred = x.0;
+
+    let six_point_four = x.1;
+
+    let one = x.2;
+    println!("{} {} {}",five_hundred,six_point_four,one);
 }
