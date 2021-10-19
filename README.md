@@ -251,3 +251,24 @@ fn main() {
 }
 ```
 
+조건문 다음으로 항상 나오는 반복문이다
+
+loop문, while문과 for문이 존재한다
+
+loop문은 간단하게 무한 반복하는 반복문이다. 딱히 쓸모가 크게 있어보이지 않는다..
+
+```
+fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{}!", number);
+
+        number = number - 1;
+    }
+
+    println!("LIFTOFF!!!");
+}
+
+```
+
