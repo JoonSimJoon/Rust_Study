@@ -1,8 +1,8 @@
 
 #![allow(non_snake_case)]
-fn main() {
-    for number in (1..4).rev() {
-        println!("{}!", number);
-    }
-    println!("LIFTOFF!!!");
+fn main() { 
+    let x = 5;
+    let y = x;
+
+    println!("x = {}, y = {}", x, y);
 }
