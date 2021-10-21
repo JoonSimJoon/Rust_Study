@@ -418,4 +418,52 @@ let r2 = &mut s;
 
 이렇게 고쳐주면 된다. 대신 r1은 스코프 종료 이후 사용 불가능하다는 점을 알아야 한다. 
 
-다음은 댕글링 참조자에 대해 배워보자. 
+다음은 댕글링 참조자에 대해 배워보자. 댕글링 포인터는 어떤 메모리를 가리키는 포인터를 보존하는 동안, 그 메모리를 해제함으로써 다른 개체에게 사용하도록 줘버렸을 지도 모를 메모리를 참조하고 있는 포인터를 말한다. 
+
+```
+fn main() {
+    let reference_to_nothing = dangle();
+}
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
+}
+```
+
+"hello"라는 문자열을 반환하고 싶은데 위코드에서는 댕글링 오류로 인해 안된다. 해결하기 위해서는 
+
+```
+fn no_dangle() -> String {
+    let s = String::from("hello");
+
+    s
+}
+```
+
+위 형태의 함수를 만들어서 관리 해주면 된다.
+
+다음은 슬라이싱이다. 문자열에서 특정 부분만 짜르기 위해 슬라이싱을 진행해주면 되는데
+
+```
+let s = String::from("hello");
+
+let len = s.len();
+
+let slice = &s[3..len];
+let slice = &s[3..];
+```
+
+다음과 같은 형태로 작성하면 된다. 
+
+```
+#![allow(unused)]
+fn main() {
+    let arr = [1,2,3,4];
+    let brr = &arr[0..2];
+    println!("{}",brr[0]);
+}
+```
+
+배열에서는 위와 같이 사용하면 된다.
