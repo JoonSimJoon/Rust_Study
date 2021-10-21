@@ -1,13 +1,9 @@
 
 #![allow(non_snake_case)]
 fn main() {
-    let s1 = String::from("hello");
+    let mut s = String::from("hello");
 
-    let len = calculate_length(&s1);
-
-    println!("The length of '{}' is {}.", s1, len);
+    let r1 = &mut s;
+    let r2 = &mut s;
 }
 
-fn calculate_length(s: &String) -> usize {
-    s.len()
-}
