@@ -321,3 +321,101 @@ println!("{}, world!", s1);
 ```
 
 그 이유는 s2에서 s1의 값이 "복사"가 아닌 이동이 되었기 때문이다.
+
+복사는 다음과 같이 clone 이라는 방법을 사용하면 된다 
+
+```
+fn main() {
+    let s1 = String::from("hello");
+    let s2 = s1.clone();
+
+    println!("s1 = {}, s2 = {}", s1, s2);
+}
+```
+
+```
+
+#![allow(non_snake_case)]
+fn main() {
+    let s = String::from("hello");  
+
+    takes_ownership(s);     
+        
+    let x = 5;                     
+
+    makes_copy(x);                  
+    println!("{}",x);
+} 
+
+fn takes_ownership(some_string: String) { 
+    println!("{}", some_string);
+} 
+
+fn makes_copy(some_integer: i32) { 
+    println!("{}", some_integer);
+} 
+```
+
+위와 같은 코드는 정상적으로 컴파일&실행이 된다.
+
+다음은 다뤄볼 내용은 참조자다. 참조자는 "&변수명"으로 참조가 가능하다. 다음 코드를 보자
+
+```
+fn main() {
+    let s1 = String::from("hello");
+
+    let len = calculate_length(&s1);
+
+    println!("The length of '{}' is {}.", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
+```
+
+이렇게 값을 참조가 가능하다. 
+
+```
+fn main() {
+    let s = String::from("hello");
+
+    change(&s);
+}
+
+fn change(some_string: &String) {
+    some_string.push_str(", world");
+}
+```
+
+하지만 위 코드는 문제가 생긴다. 그 이유는 참조한 값을 변경/ 추가 할려 하기 때문이다. 
+
+다음코드를 수정하는 방법은 mut 태그를 추가하는 방법이다. 이렇게 가변 참조자를 사용하면 한가지 문제가 생기는데 특정 스코프에는 오직 한가지에만 가변 참고자만 생성 가능하다는 사실이다. 
+
+```
+let mut s = String::from("hello");
+
+let r1 = &mut s;
+let r2 = &mut s;
+```
+
+바로 이런 형태의 코드가 안된다는 말이다. 
+
+```
+
+#![allow(unused)]
+fn main() {
+let mut s = String::from("hello");
+
+{
+    let r1 = &mut s;
+
+}
+
+let r2 = &mut s;
+}
+```
+
+이렇게 고쳐주면 된다. 대신 r1은 스코프 종료 이후 사용 불가능하다는 점을 알아야 한다. 
+
+다음은 댕글링 참조자에 대해 배워보자. 

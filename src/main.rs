@@ -1,11 +1,10 @@
 #![allow(unused)]
 fn main() {
-let mut s = String::from("hello");
-
-{
-    let r1 = &mut s;
-
+    let reference_to_nothing = dangle();
 }
 
-let r2 = &mut s;
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
 }
