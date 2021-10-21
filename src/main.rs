@@ -1,9 +1,11 @@
-
-#![allow(non_snake_case)]
+#![allow(unused)]
 fn main() {
-    let mut s = String::from("hello");
+let mut s = String::from("hello");
 
-    let r2 = &mut s;
-    let r3 = &mut s;
+{
+    let r1 = &mut s;
+
 }
 
+let r2 = &mut s;
+}
