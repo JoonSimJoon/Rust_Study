@@ -467,3 +467,79 @@ fn main() {
 ```
 
 배열에서는 위와 같이 사용하면 된다.
+
+------
+
+#### 04. 러스트에서의 구조체 
+
+선언은 struct로 하면 된다.  아래 예시 코드로 한번 확인 해보자
+
+```
+#![allow(non_snake_case)]
+#![allow(unused)]
+
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+fn main() {
+    let mut arr = User{
+        username: String::from("adasda"),
+        email:String::from("wesl@come!"),
+        sign_in_count: 13,
+        active: true,
+    };
+    let brr = arr.username;
+    println!("{}",brr);
+}
+```
+
+
+
+선언은 다음과 같이 `타입명:변수명`으로 한다. 이후 활용 방법은 변수 선언중 `let (mut) 변수명  = 구조체 이름 {};` 의 형태로 활용가능하다. 원소 접근 방법은 . 을 사용한다. 
+
+함수에서는 아래와 같이 활용 가능하다. 
+
+```
+#![allow(non_snake_case)]
+#![allow(unused)]
+
+struct Rectangle {
+    length: u32,
+    width: u32,
+}
+
+fn main() {
+    let rect1 = Rectangle { length: 50, width: 30 };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        area(&rect1)
+    );
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.length * rectangle.width
+}
+```
+
+다음은 파생 트레잇으로 구조체 전문을 출력하는 방법입니다. 
+
+```
+struct Rectangle {
+    length: u32,
+    width: u32,
+}
+
+fn main() {
+    let rect1 = Rectangle { length: 50, width: 30 };
+
+    println!("rect1 is {}", rect1);
+}
+```
+
+위와 같은 코드는 문제가 있어보인다는 사실을 우
+
