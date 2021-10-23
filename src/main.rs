@@ -1,20 +1,20 @@
 #![allow(non_snake_case)]
 #![allow(unused)]
 
-struct User {
-    username: String,
-    email: String,
-    sign_in_count: u64,
-    active: bool,
+struct Rectangle {
+    length: u32,
+    width: u32,
 }
 
 fn main() {
-    let mut arr = User{
-        username: String::from("adasda"),
-        email:String::from("wesl@come!"),
-        sign_in_count: 13,
-        active: true,
-    };
-    let brr = arr.username;
-    println!("{}",brr);
+    let rect1 = Rectangle { length: 50, width: 30 };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        area(&rect1)
+    );
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.length * rectangle.width
 }
