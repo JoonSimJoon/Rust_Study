@@ -541,5 +541,78 @@ fn main() {
 }
 ```
 
-위와 같은 코드는 문제가 있어보인다는 사실을 우
+위와 같은 코드는 문제가 있어보인다는 사실을 우리는 쉽게 알 수 있다.
+
+그럼 어떻게 수정해야할까?
+
+```
+#[derive(Debug)]
+struct Rectangle {
+    length: u32,
+    width: u32,
+}
+
+fn main() {
+    let rect1 = Rectangle { length: 50, width: 30 };
+
+    println!("rect1 is {:?}", rect1);
+}
+```
+
+다음과 같이 수정하면된다. `#[derive(Debug)]`와 `{:?}`을 사용하면된다.
+
+다음은 구조체 상에 메소드를 사용 하는 방법이다. 
+
+struct로 생성한 구조체 이름과 impl을 사용하면된다.
+
+```
+#![allow(non_snake_case)]
+#![allow(unused)]
+#[derive(Debug)]
+struct Rectangle {
+    length: u32,
+    width: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.length * self.width
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle { length: 50, width: 30 };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
+}
+```
+
+c++에서 this를 사용하여 자기 자신을 가르켰다면 rust에서는 self를 사용하여 자기 자신을 가르킬수있다.
+
+Rectangle 인스턴스를 파라미터를 갖는 다른 함수는 다음과 같이 작성 할 수 있다
+
+```
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.length * self.width
+    }
+
+    fn can_hold(&self, other: &Rectangle) -> bool {
+        self.length > other.length && self.width > other.width
+    }
+}
+```
+
+또한 연관 함수를 생성할 수 있다. `String::from`를 이미 사용해봤기에 연관 함수를 사용하는 방법은 안다. 생성은 다음과 같이 하면 된다.
+
+```
+impl Rectangle {
+    fn square(size: u32) -> Rectangle {
+        Rectangle { length: size, width: size }
+    }
+}
+```
 
